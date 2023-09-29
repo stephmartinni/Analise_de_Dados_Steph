@@ -1,0 +1,107 @@
+import time
+
+def troca_endereco():
+    nome = input("Olá, para continuarmos insira seu nome: ")
+
+    while True:  
+        print(f"Olá, {nome}! Eu sou a Catty e você está no atendimento automatizado da Scat, selecione a opção desejada para que eu possa te ajudar:")
+        print("1- Cancelamento de Encomenda.")
+        print("2- Alterar local da ScatBox escolhida.")
+        print("3- Problemas com Pagamentos ou Logística.")
+        print("4- Falar com um humano especializado.")
+        print("5- Gostaria de alterar a forma da entrega.")
+
+        opcao = input("Escolha uma opção (1, 2, 3, 4 ou 5): ")
+
+        if opcao == "1":
+            print(f"Certo, {nome}. Você selecionou a opção de Cancelamento de Encomenda.")
+            resposta = input(f"Entendido, {nome}. Tem certeza de que deseja cancelar a encomenda? (Sim ou Não): ").lower()
+
+            if resposta == "sim":
+                print(f"Obrigada, {nome}. Sua encomenda foi cancelada com sucesso.")
+            else:
+                print(f"Entendi, {nome}. Seu pedido de cancelamento foi cancelado.")
+
+        elif opcao == "2":
+            print(f"Certo, {nome}. Você selecionou a opção de Alterar local da ScatBox escolhida.")
+            resposta = input(f"Entendido, {nome}. Deseja alterar o local da ScatBox escolhida? (Sim ou Não): ").lower()
+
+            if resposta == "sim":
+                print("Escolha o novo local da ScatBox:")
+                print("1- Rua Nelson Mandela - Botafogo")
+                print("2- Arpoador - Ipanema")
+                print("3- Estação Metro Rio - Cinelândia")
+                print("4- Shopping Carioca - Vicente de Carvalho")
+                print("5- Bangu Shopping - Bangu")
+                print("6- Estação Metrô Rio - Pavuna")
+                print("7- Estação BRT Alvorada - Barra da Tijuca")
+                
+                novo_local_opcao = input("Escolha uma opção (1 a 7): ")
+                
+                locais = {
+                    "1": "Rua Nelson Mandela - Botafogo",
+                    "2": "Arpoador - Ipanema",
+                    "3": "Estação Metro Rio - Cinelândia",
+                    "4": "Shopping Carioca - Vicente de Carvalho",
+                    "5": "Bangu Shopping - Bangu",
+                    "6": "Estação Metrô Rio - Pavuna",
+                    "7": "Estação BRT Alvorada - Barra da Tijuca"
+                }
+                
+                if novo_local_opcao in locais:
+                    novo_local = locais[novo_local_opcao]
+                    print(f"O local da ScatBox escolhida foi alterado para: {novo_local}.")
+                else:
+                    print("Opção inválida. O local da ScatBox não foi alterado.")
+
+            else:
+                print(f"Entendi, {nome}. Manteremos o local da ScatBox atual.")
+
+        elif opcao == "3":
+            print(f"Certo, {nome}. Você selecionou a opção de Problemas com Pagamentos ou Logística.")
+            print(f"{nome}, você está sendo encaminhado para o atendimento humanizado em tempo real. Relaxe, seu problema será resolvido.")
+            time.sleep(3)  
+            resposta_humanizado = input(f"Olá, {nome}, você está no atendimento humanizado da ScatBox! Deseja continuar? (Sim ou Não): ").lower()
+
+            if resposta_humanizado == "sim":
+                nome = input("Para facilitar nosso atendimento, por favor, informe seu Nome: ")
+                codigo_conta = input("Agora, informe o código da sua conta no ScatApp: ")
+                print(f"Obrigado, {nome}! Um agente da ScatBox entrará em contato em breve para ajudar com o problema de Pagamentos ou Logística.")
+            else:
+                print("Atendimento humanizado encerrado.")
+
+        elif opcao == "4":
+            print(f"Certo, {nome}. Você selecionou a opção de Falar com um humano especializado.")
+            print(f"{nome}, aguarde um momento, você será transferido para um atendente.")
+            time.sleep(3)  
+            resposta_humanizado = input(f"Olá, {nome}, você está no atendimento humanizado da ScatBox! Deseja continuar? (Sim ou Não): ").lower()
+
+            if resposta_humanizado == "sim":
+                nome = input("Para facilitar nosso atendimento, por favor, informe seu Nome: ")
+                codigo_conta = input("Agora, informe o código da sua conta no ScatApp: ")
+                print(f"Obrigado, {nome}! Um agente da ScatBox entrará em contato em breve para ajudar com a sua solicitação.")
+            else:
+                print("Atendimento humanizado encerrado.")
+
+        elif opcao == "5":
+            print(f"Certo, {nome}. Você selecionou a opção de Gostaria de alterar a forma da entrega.")
+            print("Escolha a forma de entrega desejada:")
+            print("1- Entrega em um endereço personalizado (As entregas em endereços personalizados são pagas, e o pedido será entregue por um Motoboy da Scat)")
+            print("2- Adiar entrega para daqui a 7 dias úteis.")
+            print("3- Suspender entrega.")
+            
+            forma_entrega_opcao = input("Escolha uma opção (1, 2 ou 3): ")
+
+            if forma_entrega_opcao in ("1", "2", "3"):
+                print(f"Certo, {nome}. Você solicitou a troca da forma da entrega, a instantes você receberá um email da nossa equipe confirmando a troca. Obrigada, {nome}, por escolher a Scat!")
+            else:
+                print(f"Opção inválida, {nome}. A forma de entrega não foi alterada.")
+
+        resposta_final = input(f"{nome}, podemos ajudar em algo mais? (Sim ou não): ").lower()
+
+        if resposta_final != "sim":
+            print("Scat agradece o seu contato.")
+            print("Tenha um ótimo dia, {nome}!")
+            break  
+
+troca_endereco()
